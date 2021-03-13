@@ -3,10 +3,18 @@ package org.zx.springboot21313.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
+import java.util.UUID;
 
+
+@Entity
+@Table(name = "book")
 public class Book {
-    private Integer ID;
+    @Id
+    private String ID;
     private String name;
     private String author;
     @JsonIgnore
@@ -14,12 +22,12 @@ public class Book {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date publicationDate;
 
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(Integer ID) {
-        this.ID = ID;
+    public void setID() {
+        this.ID = UUID.randomUUID().toString().replace("-", "");
     }
 
     public String getName() {

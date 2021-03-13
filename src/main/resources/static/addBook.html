@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>add book</title>
+</head>
+<body>
+<h2>添加书籍</h2>
+<form action="/addbook" method="post">
+    <table>
+        <tr>
+            <td>书籍名：</td><td><label><input type="text" name="name"></label></td>
+        </tr>
+        <tr>
+            <td>作者：</td><td><label><input name="author" type="text"></label></td>
+        </tr>
+        <tr>
+            <td>价格：</td><td><label><input type="text" name="price"></label></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="提交">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
