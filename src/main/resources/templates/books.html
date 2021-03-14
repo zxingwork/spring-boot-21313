@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>图书列表</title>
+    <link rel="stylesheet" href="css/common.css" />
 </head>
 <body>
-<table border="1">
-    <tr>
-        <th>图书编号</th>
-        <th>图书名称</th>
-        <th>图书作者</th>
-    </tr>
-    <tr th:each="book:${books}">
-        <td th:text="${book.getID()}"></td>
-        <td th:text="${book.getName()}"></td>
-        <td th:text="${book.getAuthor()}"></td>
-    </tr>
-</table>
+<div style="margin:0;width: 1200px;text-align: center;">
+<div>
+
+    <table border="1">
+        <tr>
+            <th>图书编号</th>
+            <th>图书名称</th>
+            <th>图书作者</th>
+            <th>图书价格</th>
+        </tr>
+        <tr th:each="book:${books}">
+            <td th:text="${book.getID()}"></td>
+            <td th:text="${book.getName()}"></td>
+            <td th:text="${book.getAuthor()}"></td>
+            <td th:text="${book.getPrice()}"></td>
+        </tr>
+    </table>
+</div>
+</div>
 </body>
 </html>

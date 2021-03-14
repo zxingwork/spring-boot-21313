@@ -3,6 +3,7 @@ package org.zx.springboot21313.dao;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.zx.springboot21313.model.Book;
+import org.zx.springboot21313.model.User;
 
 import javax.transaction.Transactional;
 import java.util.List;

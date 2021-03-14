@@ -5,20 +5,31 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Component
 @Aspect
 public class LogAspect {
+    private Date dateStart;
+    private Date dateEnd;
+
     @Pointcut("execution(* org.zx.springboot21313.*..*(..))")
     public void pc1(){}
     @Before(value = "pc1()")
     public void before(JoinPoint jp) {
         String name = jp.getSignature().getName();
-        System.out.print("["+name+"方法开始执行]");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+        dateStart = new Date();
+        System.out.print(">>>["+sdf.format(dateStart)+"]"+"["+name+"方法开始执行]");
     }
     @After(value = "pc1()")
     public void after(JoinPoint jp){
         String name = jp.getSignature().getName();
-        System.out.print("["+name+"方法执行结束]");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:SSS");
+        dateEnd = new Date();
+        long dateSpend = dateEnd.getTime()-dateStart.getTime();
+        System.out.println("["+name+"方法执行结束]"+"["+sdf.format(dateEnd)+"消耗时间："+dateSpend+"ms]");
     }
 
     @AfterReturning(value = "pc1()",returning = "result")
